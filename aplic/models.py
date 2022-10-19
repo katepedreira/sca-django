@@ -14,6 +14,8 @@ class Curso(models.Model):
     nome = models.CharField('Nome', max_length=100)
     descricao = models.TextField('Descrição', max_length=500)
     carga_horaria = models.IntegerField('Carga Horária')
+    imagem = StdImageField('Imagem', null=True, blank=True, upload_to=get_file_path,
+                           variations={'thumb': {'width': 420, 'height': 260, 'crop': True}})
 
     class Meta:
         verbose_name = 'Curso'
